@@ -40,6 +40,8 @@ export type ConfigurationSchema = {
   recordSkirmish: boolean;
   recordSoloShuffle: boolean;
   recordBattlegrounds: boolean;
+  recordWorldPvP: boolean;
+  recordWorldPvPDuels: boolean;
   captureCursor: boolean;
   minKeystoneLevel: number;
   recordChallengeModes: boolean;
@@ -83,6 +85,7 @@ export type ConfigurationSchema = {
   cloudUploadDungeons: boolean;
   cloudUploadRaids: boolean;
   cloudUploadBattlegrounds: boolean;
+  cloudUploadWorldPvP: boolean;
   cloudUploadRaidMinDifficulty: string;
   cloudUploadDungeonMinLevel: number;
   cloudUploadClips: boolean;
@@ -328,6 +331,16 @@ export const configSchema = {
     type: 'boolean',
     default: true,
   },
+  recordWorldPvP: {
+    description: Phrase.RecordWorldPvPDescription,
+    type: 'boolean',
+    default: true,
+  },
+  recordWorldPvPDuels: {
+    description: Phrase.RecordWorldPvPDuelsDescription,
+    type: 'boolean',
+    default: true,
+  },
   captureCursor: {
     description: Phrase.CaptureCursorDescription,
     type: 'boolean',
@@ -548,6 +561,11 @@ export const configSchema = {
     description: Phrase.CloudUploadBattlegroundsDescription,
     type: 'boolean',
     default: true,
+  },
+  cloudUploadWorldPvP: {
+    description: Phrase.CloudUploadWorldPvPDescription,
+    type: 'boolean',
+    default: false,
   },
   cloudUploadRaidMinDifficulty: {
     description: Phrase.CloudUploadRaidMinDifficultyDescription,
