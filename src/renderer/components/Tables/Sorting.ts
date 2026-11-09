@@ -8,6 +8,7 @@ import {
   getVideoResultText,
   isMythicPlusUtil,
   isRaidUtil,
+  isWorldPvPUtil,
   raidResultToPercent,
 } from 'renderer/rendererutils';
 
@@ -132,7 +133,7 @@ export const clipActivitySort = (
   let activityA = getLocalePhrase(language, Phrase.Unknown);
   const rvA = a.original;
 
-  if (isRaidUtil(rvA) && rvA.encounterName) {
+  if ((isRaidUtil(rvA) || isWorldPvPUtil(rvA)) && rvA.encounterName) {
     activityA = rvA.encounterName;
   } else if (isMythicPlusUtil(rvA) && rvA.mapID) {
     activityA = getDungeonName(rvA);
@@ -143,7 +144,7 @@ export const clipActivitySort = (
   let activityB = getLocalePhrase(language, Phrase.Unknown);
   const rvB = b.original;
 
-  if (isRaidUtil(rvB) && rvB.encounterName) {
+  if ((isRaidUtil(rvB) || isWorldPvPUtil(rvB)) && rvB.encounterName) {
     activityB = rvB.encounterName;
   } else if (isMythicPlusUtil(rvB) && rvB.mapID) {
     activityB = getDungeonName(rvB);

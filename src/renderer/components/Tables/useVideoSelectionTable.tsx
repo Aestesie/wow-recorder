@@ -477,6 +477,62 @@ const useVideoSelectionTable = (
     },
   ];
 
+  /**
+   * The world PvP table columns. The activity column shows the outcome
+   * (kill / death / duel) and who it was against.
+   */
+  const worldPvPColumns: ColumnDef<
+    typeof stockFeatures,
+    RendererVideo,
+    unknown
+  >[] = [
+    {
+      id: 'Details',
+      size: 80,
+      accessorFn: (v) => v,
+      sortFn: (a, b) => detailSort(a, b),
+      header: DetailsHeader,
+      cell: (ctx) =>
+        populateDetailsCell(
+          ctx,
+          language,
+          cloudStatus,
+          setVideoState,
+          setDialog,
+          setLockDialogVideoTargetId,
+          setTagDialogVideoTargetId,
+        ),
+    },
+    {
+      id: 'Activity',
+      accessorFn: (v) => v,
+      sortFn: (a, b) => clipActivitySort(a, b, language),
+      header: () => ActivityHeader(language),
+      cell: (ctx) => populateActivityCell(ctx, language),
+    },
+    {
+      id: 'Duration',
+      accessorFn: (v) => v,
+      sortFn: durationSort,
+      header: () => DurationHeader(language),
+      cell: populateDurationCell,
+    },
+    {
+      id: 'Date',
+      accessorFn: (v) => videoToDate(v),
+      header: () => DateHeader(language),
+      cell: populateDateCell,
+    },
+    {
+      id: 'Viewpoints',
+      size: 180,
+      accessorFn: (v) => v,
+      header: () => ViewpointsHeader(language),
+      cell: (v) => populateViewpointCell(v),
+      sortFn: viewPointCountSort,
+    },
+  ];
+
   const manualColumns: ColumnDef<
     typeof stockFeatures,
     RendererVideo,
@@ -541,6 +597,9 @@ const useVideoSelectionTable = (
     case VideoCategory.Skirmish:
     case VideoCategory.SoloShuffle:
       columns = arenaColumns;
+      break;
+    case VideoCategory.WorldPvP:
+      columns = worldPvPColumns;
       break;
     case VideoCategory.Manual:
       columns = manualColumns;

@@ -18,6 +18,7 @@ import {
   getWoWClassColor,
   povDiskFirstNameSort,
   isRaidUtil,
+  isWorldPvPUtil,
   isMythicPlusUtil,
   getDungeonName,
 } from 'renderer/rendererutils';
@@ -99,6 +100,8 @@ export const populateActivityCell = (
   let activity = getLocalePhrase(language, Phrase.Unknown);
 
   if (isRaidUtil(video) && video.encounterName) {
+    activity = video.encounterName;
+  } else if (isWorldPvPUtil(video) && video.encounterName) {
     activity = video.encounterName;
   } else if (isMythicPlusUtil(video) && video.mapID) {
     const dungeonName = getDungeonName(video);
