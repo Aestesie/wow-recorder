@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migrate the build tooling from webpack to electron-vite.
 
 ### Added
+- WoW Forever: World PvP clips. Short recordings of player kills, deaths and duels outside of instanced content, saved under a new World PvP category. Enabled under PvP settings, with a toggle for non-lethal fights / duels.
+
 ### Fixed
 - Bump the Electron version to `45.2.3`, and related packages.
 - Fix side menu width so that it doesn't shrink when the window is small.
