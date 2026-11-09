@@ -9,4 +9,6 @@ export enum VideoCategory {
   Battlegrounds = 'Battlegrounds',
   Clips = 'Clips',
   Manual = 'Manual',
+  // Appended last: the selected category is persisted by enum index.
+  WorldPvP = 'World PvP',
 }
