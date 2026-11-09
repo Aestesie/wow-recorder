@@ -150,6 +150,15 @@ export default abstract class Activity {
     this.result = result;
   }
 
+  /**
+   * Whether the finished recording should be thrown away rather than saved.
+   * Subclasses override this when they only know at the end if anything
+   * worth keeping happened.
+   */
+  shouldDiscard(): boolean {
+    return false;
+  }
+
   getCombatant(GUID: string) {
     return this.combatantMap.get(GUID);
   }
