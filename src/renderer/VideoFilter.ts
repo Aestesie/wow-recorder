@@ -10,6 +10,7 @@ import {
   isBattlegroundUtil,
   isMythicPlusUtil,
   isRaidUtil,
+  isWorldPvPUtil,
   getPlayerClass,
   getWoWClassColor,
   getPlayerSpecID,
@@ -130,7 +131,11 @@ export default class VideoFilter {
     const suggestions: VideoTag[] = [];
     suggestions.push(...this.getGenericSuggestions(video, language));
 
-    if (isArenaUtil(video) || isBattlegroundUtil(video)) {
+    if (
+      isArenaUtil(video) ||
+      isBattlegroundUtil(video) ||
+      isWorldPvPUtil(video)
+    ) {
       suggestions.push(...this.getPvpSuggestions(video, language));
     } else if (isRaidUtil(video)) {
       suggestions.push(...this.getRaidSuggestions(video, language));

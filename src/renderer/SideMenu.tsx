@@ -15,6 +15,7 @@ import {
   Sword,
   Swords,
   CirclePlay,
+  Crosshair,
 } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDungeon, faDragon } from '@fortawesome/free-solid-svg-icons';
@@ -488,6 +489,7 @@ const SideMenu = (props: IProps) => {
           {renderCategoryTab(VideoCategory.MythicPlus, mythicPlusIcon)}
           {renderCategoryTab(VideoCategory.Raids, raidsIcon)}
           {renderCategoryTab(VideoCategory.Battlegrounds, <Goal />)}
+          {renderCategoryTab(VideoCategory.WorldPvP, <Crosshair />)}
           {renderCategoryTab(VideoCategory.Manual, <HardHat />)}
           {renderCategoryTab(VideoCategory.Clips, <Clapperboard />)}
         </Menu>

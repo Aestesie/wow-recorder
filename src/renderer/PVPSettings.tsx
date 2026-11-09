@@ -30,9 +30,13 @@ const PVPSettings = (props: IProps) => {
       recordSkirmish: config.recordSkirmish,
       recordSoloShuffle: config.recordSoloShuffle,
       recordBattlegrounds: config.recordBattlegrounds,
+      recordWorldPvP: config.recordWorldPvP,
+      recordWorldPvPDuels: config.recordWorldPvPDuels,
     });
   }, [
     config.recordBattlegrounds,
+    config.recordWorldPvP,
+    config.recordWorldPvPDuels,
     config.recordFiveVFive,
     config.recordSkirmish,
     config.recordSoloShuffle,
@@ -122,6 +126,24 @@ const PVPSettings = (props: IProps) => {
     });
   };
 
+  const setRecordWorldPvP = (checked: boolean) => {
+    setConfig((prevState) => {
+      return {
+        ...prevState,
+        recordWorldPvP: checked,
+      };
+    });
+  };
+
+  const setRecordWorldPvPDuels = (checked: boolean) => {
+    setConfig((prevState) => {
+      return {
+        ...prevState,
+        recordWorldPvPDuels: checked,
+      };
+    });
+  };
+
   return (
     <div className="flex flex-row flex-wrap gap-x-4">
       {getSwitchForm('recordTwoVTwo', Phrase.Record2v2Label, setRecord2v2)}
@@ -141,6 +163,16 @@ const PVPSettings = (props: IProps) => {
         'recordBattlegrounds',
         Phrase.RecordBattlegroundsLabel,
         setRecordBgs,
+      )}
+      {getSwitchForm(
+        'recordWorldPvP',
+        Phrase.RecordWorldPvPLabel,
+        setRecordWorldPvP,
+      )}
+      {getSwitchForm(
+        'recordWorldPvPDuels',
+        Phrase.RecordWorldPvPDuelsLabel,
+        setRecordWorldPvPDuels,
       )}
     </div>
   );

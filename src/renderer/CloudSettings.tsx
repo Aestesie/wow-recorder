@@ -810,6 +810,7 @@ const CloudSettings = (props: IProps) => {
             'cloudUploadBattlegrounds',
             Phrase.UploadBattlgroundsLabel,
           )}
+          {getSwitchForm('cloudUploadWorldPvP', Phrase.UploadWorldPvPLabel)}
         </div>
 
         <div className="flex flex-row gap-x-6">

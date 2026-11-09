@@ -378,9 +378,21 @@ const isSoloShuffleUtil = (video: RendererVideo) => {
   );
 };
 
+const isWorldPvPUtil = (video: RendererVideo) => {
+  const { category, parentCategory } = video;
+
+  return (
+    category === VideoCategory.WorldPvP ||
+    parentCategory === VideoCategory.WorldPvP
+  );
+};
+
 const isArenaUtil = (video: RendererVideo) => {
   return (
-    !isMythicPlusUtil(video) && !isRaidUtil(video) && !isBattlegroundUtil(video)
+    !isMythicPlusUtil(video) &&
+    !isRaidUtil(video) &&
+    !isBattlegroundUtil(video) &&
+    !isWorldPvPUtil(video)
   );
 };
 
@@ -1239,6 +1251,7 @@ export {
   isBattlegroundUtil,
   isSoloShuffleUtil,
   isArenaUtil,
+  isWorldPvPUtil,
   isClip,
   getResultColor,
   getPlayerName,
