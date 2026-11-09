@@ -1434,7 +1434,11 @@ export default class CloudClient implements StorageClient {
     const guild = encodeURIComponent(this.guild);
     let url = `${CloudClient.api}/guild/${guild}/`;
 
-    if (category === VideoCategory.Manual || category === VideoCategory.Clips) {
+    if (
+      category === VideoCategory.Manual ||
+      category === VideoCategory.Clips ||
+      category === VideoCategory.WorldPvP
+    ) {
       let uniqueName = `${encodeURIComponent(videoName)} - ${duration.toFixed(2)}`;
 
       if (category === VideoCategory.Clips) {
