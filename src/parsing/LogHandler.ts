@@ -377,6 +377,11 @@ export default abstract class LogHandler {
       const { duration } = metadata;
       const suffix = lastActivity.getFileName();
 
+      if (lastActivity.shouldDiscard()) {
+        console.info('[LogHandler] Discarding activity, nothing to keep');
+        return;
+      }
+
       if (lastActivity.category === VideoCategory.Raids) {
         const minDuration = cfg.get<number>('minEncounterDuration');
         const notLongEnough = duration < minDuration;
