@@ -92,6 +92,10 @@ const categoryRecordingSettings: Omit<
     allowRecordKey: 'recordBattlegrounds',
     autoUploadKey: 'cloudUploadBattlegrounds',
   },
+  [VideoCategory.WorldPvP]: {
+    allowRecordKey: 'recordWorldPvP',
+    autoUploadKey: 'cloudUploadWorldPvP',
+  },
   [VideoCategory.Manual]: {
     allowRecordKey: 'manualRecord',
     autoUploadKey: 'manualRecordUpload',
